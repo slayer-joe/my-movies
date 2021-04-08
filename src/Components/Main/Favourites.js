@@ -12,7 +12,7 @@ function Favourites() {
     return (
         <div className="favourites">
                  <h2>Favourites</h2>
-                {favourites.length > 0 ? favourites.map((listItem, i) => {
+                {favourites && favourites.length > 0 ? favourites.map((listItem, i) => {
                     return <ListItem  title={listItem.title ? listItem.title : listItem.name}
                                         localData={localData}
                                         setLocalData={setLocalData}

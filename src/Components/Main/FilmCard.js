@@ -30,18 +30,22 @@ useEffect(() => {
 
 return(
 
-        <li className="card_item_container" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${location.state.bg})`}}>
+        <div className="card_item_container" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${location.state.bg})`}}>
             <div className="card_item">
+            <div className="card_head">
             <img src={location.state.src} alt={location.state.title} className="film-image" />
             <div className="info-block">
                 <h2 className="name">{location.state.title} / {location.state.originalTitle}</h2>
                 <p className="rating">Rating: {location.state.rating}</p>
                 <p className="description">{location.state.description}</p>
             </div>
-            <iframe width="560" height="315" src={`https://www.youtube.com/embed/${trailer}`} frameBorder="1px solid black" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={location.state.title}></iframe>
-            <CommentBlock/>
+            </div>
+            <div className="iframe_container">
+            <iframe src={`https://www.youtube.com/embed/${trailer}`} frameBorder="1px solid black" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title={location.state.title}></iframe>
+            </div>
+                <CommentBlock />
             </div>   
-        </li>
+        </div>
 
 )
 

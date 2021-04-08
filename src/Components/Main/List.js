@@ -51,7 +51,7 @@ function List({type, title, group}) {
 return (
 
             <div className="list-container">
-                <h1>{title}</h1>
+                <h2>{title}</h2>
                 <ul className="list">
                     
                     {data.map((listItem, i) => (

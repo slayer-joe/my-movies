@@ -78,7 +78,7 @@ function SearchList({title, searchType, searchResponse}) {
             <h2>{title}</h2>
             <ul className="list">
 
-                {data.length > 0 ? data.map((listItem) => (
+                {data && data.length > 0 ? data.map((listItem) => (
                     
                         <ListItem   listItem={listItem}
                                     title={listItem.title ? listItem.title : listItem.name}
@@ -95,7 +95,7 @@ function SearchList({title, searchType, searchResponse}) {
                                     key={listItem.id}
                                     />       
                 ) 
-                ) : <h3>Sorry we didn't search anythyng. Check your response</h3>}
+                ) : <h3>Sorry we haven't search anythyng. Check your response</h3>}
             </ul>
         </div> 
 

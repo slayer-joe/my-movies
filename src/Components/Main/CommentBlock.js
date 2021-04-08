@@ -56,7 +56,7 @@ function CommentBlock() {
     return (
         <div className="comment_block">
 
-            <h2 className="comment_block_title">Comments</h2>
+            <h2>Comments</h2>
 
             {commentList.map((item, i) => {
                 return <Comment comment={item}

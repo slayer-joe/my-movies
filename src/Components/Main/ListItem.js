@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router'
+import noImage from '../../img/noimage.jpg'
 
 
 
@@ -27,8 +28,28 @@ function setWishList() {
     if(buttonName === 'Add to my List') {
 
         listItem.type = type
+        
+        let lists = JSON.parse(localStorage.getItem('list'))||[]
+        if(lists.length == 0){
+            lists.push(listItem)
+        }else{
+            let flag = true;
+            lists.forEach(element => {                   
+                if(element.id == id){
+                   flag = false;                     
+                }
+            });
 
-        setLocalData(prevState => [...prevState, listItem])
+            if(flag !== false){
+                lists.push(listItem)
+            }
+
+
+        }   
+        console.log(lists)
+        setLocalData([...lists])      
+    
+           
                
     } else if(buttonName === 'delete from list') {
         
@@ -46,7 +67,7 @@ function setWishList() {
 return(
 
     <li className="item">
-        <img src={src} alt={title} className="film-image"  onClick={() => clickHandler()}/>
+        <img src={src ? src : noImage} alt={title} className="film-image"  onClick={() => clickHandler()}/>
             <div className="info-block">
                 <h2 className="name">{title} / {originalTitle}</h2>
                 {type !== 'person' ? <p className="rating">Rating: {rating}</p> : ''}
